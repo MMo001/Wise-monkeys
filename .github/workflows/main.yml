@@ -28,5 +28,5 @@
           uses: azure/CLI@v1
           with:
             inlineScript: |
-                az deployment sub create --location westeurope --template-file .\main.bicep --parameters .\param\main.bicepparam
+                az deployment sub create  --name ProvisioningLogAnalitics --location westeurope --template-file .\main.bicep --parameters .\param\main.bicepparam
     
