@@ -28,5 +28,5 @@
           with:
             inlineScript: |
                 ls
-                az deployment sub create  --name 'Provisioning log analytics Workspace' --location westeurope --template-file ./main.bicep --parameters ./param/main.bicepparam
+                az deployment sub create  --name Provisioning_log_analytics_Workspace --location westeurope --template-file ./main.bicep --parameters ./param/main.bicepparam
     
