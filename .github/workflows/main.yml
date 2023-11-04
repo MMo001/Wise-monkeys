@@ -39,8 +39,7 @@
           uses: azure/CLI@v1.0.8
           with:
              # Runs a set of commands using the Azure CLI shell
-            inlineScript: |
-                az config set bicep.use_binary_from_path=False
-                az bicep install
-                az deployment sub create --name Provisioning_log_analytics_Workspace --location westeurope --template-file ./main.bicep --parameters ./param/main.bicepparam
-    
+            inlineScript: | 
+
+                 az deployment sub create --name Provisioning_log_analytics_Workspace --location westeurope --template-file ./main.bicep --parameters ./param/main.bicepparam
+                 
