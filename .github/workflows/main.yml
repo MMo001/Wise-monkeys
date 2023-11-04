@@ -28,5 +28,5 @@
           uses: azure/CLI@v1
           with:
             inlineScript: |
-                az group create --name MyOwnResourceGroup --location westeurope
+                az deployment sub create --location westeurope --template-file .\main.bicep --parameters .\param\main.bicepparam
     
