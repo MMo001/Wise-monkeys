@@ -1,11 +1,10 @@
-    name: GitHub Action
-
+    name: Provisioning log analytics Workspace
    
-    on:
-        workflow_dispatch:
+    on: push
 
     permissions:
       id-token: write
+      contents: read
     
     jobs:
       build:
@@ -29,5 +28,5 @@
           with:
             inlineScript: |
                 ls
-                az deployment sub create  --name LogAnalitics --location westeurope --template-file ./main.bicep --parameters ./param/main.bicepparam
+                az deployment sub create  --name 'Provisioning log analytics Workspace' --location westeurope --template-file ./main.bicep --parameters ./param/main.bicepparam
     
