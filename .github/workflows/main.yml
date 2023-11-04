@@ -28,5 +28,5 @@
           uses: azure/CLI@v1
           with:
             inlineScript: |
-                az group create --name MyResourceGroup --location westeurope
+                az group create --name MyOwnResourceGroup --location westeurope
     
