@@ -1,7 +1,11 @@
     name: GitHub Action
 
+   
     on:
         workflow_dispatch:
+
+    permissions:
+      id-token: write
     
     jobs:
       build:
@@ -11,7 +15,7 @@
           uses: actions/checkout@v2
           with:
             repository: MMo001/Wise-monkeys
-            
+           
 
         - name: Login to Azure
           uses: azure/login@v1
