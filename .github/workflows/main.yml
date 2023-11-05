@@ -1,4 +1,10 @@
-    # Enter Workflow name here
+#-----------------------------------------------------------------------------
+#  Company: Wise Monkeys
+#  This script is provided "AS IS" with no warranties, and confers no rights.
+#  Version 1.0
+# -----------------------------------------------------------------------------
+   
+   # Enter Workflow name here
     name: Provisioning log analytics Workspace
    
     on:

@@ -1,12 +1,6 @@
-/*<#-----------------------------------------------------------------------------
+/*-----------------------------------------------------------------------------
 Company: Wise Monkeys
-Marcel Moreels, Cloud Solution Architect
-
-marcel@wise-monkeys.nl
-October, 2023
-
 This script is provided "AS IS" with no warranties, and confers no rights.
-
 Version 1.0
 -----------------------------------------------------------------------------*/
 
