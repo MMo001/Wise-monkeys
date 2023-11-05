@@ -22,8 +22,6 @@ targetScope = 'subscription'
 
 @description('Default tags')
 param maintagValues object = {
-  deploymentDate: currentDate
-  deploymentTime: 'UTC:${currentTime}' 
   Customer: 'Wise Monkeys'
   Solution: 'Corp IT Azure Infrastructure'
   createdby: 'IaC'
@@ -43,19 +41,13 @@ param component string
 @allowed([ 'prod', 'acc', 'tst', 'dev'])
 param env string
 
-@description('Current Date for deployment records')
-param currentDate string = utcNow('yyyy-MM-dd')
-
-@description('Current Time for deployment records')
-param currentTime string = utcNow('t')
-
 @description('The managementgroup where these resource are assigned too')
 param product string
 
 @description('Dictionary of deployment regions with shortname')
 param locationList object
 
-// Parameter declaration Log Analytics Workspace
+// Parameter declaration Azure Monitor Logs
 
 //@description('Log Analytics Workspace name.')
 //param logName  string = 'alz-log-analytics'
@@ -113,7 +105,7 @@ resource resourceGroup 'Microsoft.Resources/resourceGroups@2021-01-01' = {
   }
 }
 
-module logAnalytics './modules/LogAnalytics.bicep' = {
+module logAnalytics './modules/AzureMonitorLogs.bicep' = {
   scope: resourceGroup
   name: 'logAnalytics'
     params: {
