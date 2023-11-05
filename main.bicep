@@ -85,7 +85,7 @@ var locationShortName = locationList[location]
 var tags = union(maintagValues,tagValues )
 var resourceGroupName = '${groupName}-${env}-${locationShortName}-rg'
 var Log_Name = '${logName}-${env}-${locationShortName}-log'
-var Log_LogAutomationAccountName = '${LogAutomationAccountName}-${env}-${locationShortName}-aa'
+var Log_LogAutomationAccountName = '${LogAutomationAccountName}-log-${env}-${locationShortName}-aa'
 
 resource resourceGroup 'Microsoft.Resources/resourceGroups@2021-01-01' = {
   name: resourceGroupName
