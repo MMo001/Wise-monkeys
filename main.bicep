@@ -27,23 +27,22 @@ param tagValues object
 @description('Azure region for deployment.')
 param location string = deployment().location
 
-@description('Application components these resources are part of.')
-param component string
-
 @description('Environment for deployment')
 @allowed([ 'prod', 'acc', 'tst', 'dev'])
 param env string
 
-@description('The managementgroup where these resource are assigned too')
-param product string
-
 @description('Dictionary of deployment regions with shortname')
 param locationList object
 
+// Parameter declaration Resource Group(s)
+
+@description('The name of the resource group')
+param groupName string
+
 // Parameter declaration Azure Monitor Logs
 
-//@description('Log Analytics Workspace name.')
-//param logName  string = 'alz-log-analytics'
+@description('Log Analytics Workspace name.')
+param logName  string 
 
 @description('Log Analytics Workspace sku name.')
 @allowed([ 'CapacityReservation', 'Free', 'LACluster', 'PerGB2018', 'PerNode', 'Premium', 'Standalone', 'Standard' ])
@@ -84,11 +83,9 @@ param LogSolutions array
 
 var locationShortName = locationList[location]
 var tags = union(maintagValues,tagValues )
-
-var groupName = '${product}-${component}'
-var environmentName = '${groupName}-${env}-${locationShortName}'
-var resourceGroupName = 'rg-wl-${environmentName}'
-var Log_Name = 'log-${env}-${locationShortName}'
+var resourceGroupName = '${groupName}-${env}-${locationShortName}-rg'
+var Log_Name = '${logName}-${env}-${locationShortName}-log'
+var Log_LogAutomationAccountName = '${LogAutomationAccountName}-${env}-${locationShortName}-aa'
 
 resource resourceGroup 'Microsoft.Resources/resourceGroups@2021-01-01' = {
   name: resourceGroupName
@@ -110,7 +107,7 @@ module logAnalytics './modules/AzureMonitorLogs.bicep' = {
     LogRetInDays: LogRetInDays
     LogDailyQuotaGb: LogDailyQuotaGb
     LogUseSentinelClassicPricingTiers: LogUseSentinelClassicPricingTiers
-    LogAutomationAccountName: LogAutomationAccountName
+    LogAutomationAccountName: Log_LogAutomationAccountName
     LogAutomationAccountUseManagedIdentity: LogAutomationAccountUseManagedIdentity
     logLinkAutomationAccount: logLinkAutomationAccount
     LogSolutions: LogSolutions 

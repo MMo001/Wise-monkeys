@@ -6,14 +6,11 @@ Version 1.0
 
 using '../main.bicep'
 
-//description('Application components these resources are part of.')
-param component = 'log'
-
 //description('Environment for deployment')
 param env = 'prod'
 
-//description('The managementgroup where these resource are assigned too')
-param product = 'pltf-mgmt'
+//description('The name of the resource group')
+param groupName = 'platform-mgmt-wl-azmonitor'
 
 //description('Dictionary of deployment regions with shortname')
 param locationList = {
@@ -33,6 +30,9 @@ param tagValues = {
   DisasterRecoveryMethod : 'IaC'
 }
 
+//description('Log Analytics Workspace name.')
+param logName  = 'azmonitor'
+
 //description('Log Analytics Workspace sku name.')
 param logSku = 'PerGB2018'
 
@@ -49,7 +49,7 @@ param LogDailyQuotaGb = 1
 param LogUseSentinelClassicPricingTiers = false
 
 //description('Automation account name.')
-param LogAutomationAccountName = 'aa-log-prod-weu'
+param LogAutomationAccountName = 'azmonitor'
 
 //description('Automation Account - use managed identity.')
 param LogAutomationAccountUseManagedIdentity = true
