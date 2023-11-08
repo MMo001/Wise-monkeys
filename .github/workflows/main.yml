@@ -47,4 +47,4 @@
              # Runs a set of commands using the Azure CLI shell
             inlineScript: | 
 
-                 az stack sub create --name 'azuremonitorlogs' --location 'westeurope' --template-file './main.bicep' --parameters './param/main.bicepparam' --deny-settings-mode 'none' --yes
+                 az stack sub create --n 'azuremonitorlogs' --l 'westeurope' --f './main.bicep' --p './param/main.bicepparam' --dm 'none' --yes
