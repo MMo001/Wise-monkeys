@@ -5,7 +5,7 @@
 # -----------------------------------------------------------------------------
    
    # Enter Workflow name here
-    name: Provisioning Azure Monitor Logs
+    name: Provisioning building block [Azure Monitor Logs]
    
     on:
       # Triggers the workflow on push request events but only for the "main" branch
@@ -47,4 +47,4 @@
              # Runs a set of commands using the Azure CLI shell
             inlineScript: | 
                  az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-                 az stack sub create --name 'azuremonitorlogs' --location 'westeurope' --template-file './main.bicep' --parameters './param/main.bicepparam' --deny-settings-mode 'none' --yes
+                 az stack sub create --name 'azuremonitorlogs' --location 'westeurope' --template-file './main.bicep' --parameters './param/main.bicepparam' --deny-settings-mode 'none' --yes 
