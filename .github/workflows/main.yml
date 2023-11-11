@@ -53,4 +53,5 @@
                  --template-file './main.bicep'         \
                  --parameters './param/main.bicepparam' \
                  --deny-settings-mode 'none'            \
-                 --yes 
+                 --yes \
+                 env=dev
