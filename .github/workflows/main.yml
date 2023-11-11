@@ -50,7 +50,7 @@
                  --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}    \
                  
                  az stack sub create                                    \
-                 --name 'azuremonitorlogs'                              \
+                 --name 'azure monitorlogs'                              \
                  --location 'westeurope'                                \
                  --template-file './main.bicep'                         \
                  --parameters './param/main.bicepparam'                 \
